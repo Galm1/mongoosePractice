@@ -1,22 +1,16 @@
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 const bodyParser = require('body-parser');
-const app = express();
-const models = require('./models/models.js');
-const MongoClient = require('mongodb').MongoClient
-  , assert = require('assert');
-const url = 'mongodb://localhost:27017/todo';
-const ObjectId = require('mongodb').ObjectID;
 const mongoose = require('mongoose');
 const dadJokes = require('./models/models.js');
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost:27017/jokes');
+
+const app = express();
 app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-let database;
 
 app.get('/', function (req, res) {
   res.render('index',[])
@@ -37,7 +31,6 @@ app.get('/', function (req, res) {
 //   })
 //   });
 
-console.log(dadJoke);
 
 
 
