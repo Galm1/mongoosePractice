@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>jokes bruh</title>
-  </head>
-  <body>
-    <h1>jokes</h1>
-    <br>
 
-    <form class="" action="/" method="post">
-      <input type="text" name="newJ" value="" placeholder="tell me a joke">
-      <button type="submit" name="button">submit joke</button>
-    </form>
+<head>
+  <meta charset="utf-8">
+  <title>jokes bruh</title>
+</head>
+
+<body>
+  <h1>jokes</h1>
+  <br>
+
+  <form class="" action="/" method="post">
+    <input type="text" name="newJ" value="" placeholder="tell me a joke">
+    <button type="submit" name="button">submit joke</button>
+  </form>
+
+
+
+  <hr>
   <ul>
     {{#data}}
     <li>{{joke}}</li>
+    <h4>is this joke funny??</h4>
+    <form class="" action="/" method="post">
+      <input type="radio" name="isFunny" value="true"> Yes!<br>
+      <input type="radio" name="isFunny" value="false"> Oh God NO<br>
+    </form>
+    <br>
     {{/data}}
+
   </ul>
 
   </body>

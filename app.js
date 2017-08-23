@@ -49,6 +49,19 @@ app.post('/', function(req, res) {
   res.redirect('/');
 })
 
+app.post('/', function(req, res) {
+  const funny = req.body.isFunny;
+  let newJoke = new dadJokes({wasFunny: funny});
+  newJoke.save().then(function () {
+    res.send(funny);
+    console.log('decided if funny');
+    return dadJoke.find({});
+  }).catch(function (error) {
+    console.log('error ' + JSON.stringify(error));
+  });
+  res.redirect('/');
+})
+
 
 
 
