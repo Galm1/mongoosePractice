@@ -6,13 +6,17 @@
   </head>
   <body>
     <h1>jokes</h1>
+    <br>
 
+    <form class="" action="/" method="post">
+      <input type="text" name="newJ" value="" placeholder="tell me a joke">
+      <button type="submit" name="button">submit joke</button>
+    </form>
+  <ul>
     {{#data}}
-    <ul>
-    <li>{{joke}}</li>  
-    </ul>
-
+    <li>{{joke}}</li>
     {{/data}}
+  </ul>
 
   </body>
 </html>

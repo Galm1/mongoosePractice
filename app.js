@@ -12,10 +12,16 @@ app.set('views', './views');
 app.set('view engine', 'mustache');
 app.use(bodyParser.urlencoded({extended: false}));
 
+
+
+
+
 app.get('/', function (req, res) {
   dadJokes.find().then(function(jokes) {
   res.render('index', {data: jokes})
 })});
+
+
 // let newJoke = 'eyyyyy its a joke bruh';
 // const dadJoke = new dadJokes({joke: newJoke, peopleWhoLikeIt: 'everybody'});
 // dadJoke.save()
@@ -29,9 +35,19 @@ app.get('/', function (req, res) {
 //     console.log('\n\nfind returned ' + results.length + ' results');
 //   }).catch(function (error) {
 //     console.log('error ' + JSON.stringify(error));
-//   })
 //   });
 
+app.post('/', function(req, res) {
+  const addJoke = req.body.newJ;
+  let newJoke = new dadJokes({joke: addJoke});
+  newJoke.save().then(function () {
+    console.log('added a new joke');
+    return dadJoke.find({});
+  }).catch(function (error) {
+    console.log('error ' + JSON.stringify(error));
+  });
+  res.redirect('/');
+})
 
 
 
