@@ -8,6 +8,9 @@ const MongoClient = require('mongodb').MongoClient
   , assert = require('assert');
 const url = 'mongodb://localhost:27017/todo';
 const ObjectId = require('mongodb').ObjectID;
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+mongoose.connect('mongodb://localhost:27017/test');
 app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
@@ -33,7 +36,7 @@ let database;
 
 
 app.listen(3000, function () {
-  console.log('Successfully started express application!');
+  console.log('SERVER IS ALIVE');
 })
 
 MongoClient.connect(url, function(err, db) {
