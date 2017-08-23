@@ -13,8 +13,9 @@ app.set('view engine', 'mustache');
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', function (req, res) {
-  res.render('index',[])
-});
+  dadJokes.find().then(function(jokes) {
+  res.render('index', {data: jokes})
+})});
 // let newJoke = 'eyyyyy its a joke bruh';
 // const dadJoke = new dadJokes({joke: newJoke, peopleWhoLikeIt: 'everybody'});
 // dadJoke.save()
