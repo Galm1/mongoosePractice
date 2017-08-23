@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const dadJokesSchema = new mongoose.Schema({
     joke: { type: String, required: true, unique: true },
-    peolpleWhoLikeIt: [String],
-    peolpleWhoDontLikeIt: [String],
+    peopleWhoLikeIt: [String],
+    peopleWhoDontLikeIt: [String],
     wasFunny: {type: Boolean}
 })
 
-const Recipe = mongoose.model('dadjoke', dadJokesSchema);
+const dadJokes = mongoose.model('dadJokes', dadJokesSchema);
 
-module.exports = Recipe;
+module.exports = dadJokes;
