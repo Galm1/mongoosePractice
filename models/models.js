@@ -4,7 +4,7 @@ const dadJokesSchema = new mongoose.Schema({
     joke: { type: String, required: true, unique: true },
     peopleWhoLikeIt: [String],
     peopleWhoDontLikeIt: [String],
-    wasFunny: {type: Boolean}
+    wasFunny: Boolean
 })
 
 const dadJokes = mongoose.model('dadJokes', dadJokesSchema);

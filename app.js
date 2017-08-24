@@ -11,6 +11,7 @@ app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
 app.use(bodyParser.urlencoded({extended: false}));
+let database;
 
 
 
@@ -21,7 +22,7 @@ app.get('/', function (req, res) {
   res.render('index', {data: jokes})
 })});
 
-
+//
 // let newJoke = 'eyyyyy its a joke bruh';
 // const dadJoke = new dadJokes({joke: newJoke, peopleWhoLikeIt: 'everybody'});
 // dadJoke.save()
@@ -49,18 +50,17 @@ app.post('/', function(req, res) {
   res.redirect('/');
 })
 
-app.post('/', function(req, res) {
-  const funny = req.body.isFunny;
-  let newJoke = new dadJokes({wasFunny: funny});
-  newJoke.save().then(function () {
-    res.send(funny);
-    console.log('decided if funny');
-    return dadJoke.find({});
-  }).catch(function (error) {
-    console.log('error ' + JSON.stringify(error));
-  });
-  res.redirect('/');
-})
+// app.post('/', function(req, res) {
+//   const funny = req.body.isFunny;
+//   let newJoke = new dadJokes({versionKey: funny});
+//   newJoke.update().then(function () {
+//     console.log('decided if funny');
+//     return dadJoke.find({});
+//   }).catch(function (error) {
+//     console.log('error ' + JSON.stringify(error));
+//   });
+//   res.redirect('/');
+// })
 
 
 
